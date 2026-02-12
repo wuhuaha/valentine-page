@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>桃源深处 · 情定今夕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <style>
+        /* ===== 治愈系国风配色：工笔水墨的烟火气 ===== */
+        :root {
+            /* 山青水绿 - 低饱和度 */
+            --mountain-blue: #2F6D68;      /* 深青黛 - 远山 */
+            --water-green: #6E9B8F;        /* 水绿 - 溪水 */
+            --mist-green: #B7CBB8;         /* 晨雾绿 */
+            --bamboo-green: #7E9E75;       /* 竹叶青 */
+            
+            /* 温暖木色 - 烟火气 */
+            --wood-warm: #B88D62;          /* 暖木屋 */
+            --wood-light: #D9C5A7;         /* 浅木色 */
+            --wood-dark: #7B5B3C;          /* 深木色 */
+            --bamboo-brown: #A08968;       /* 竹编色 */
+            
+            /* 晨雾色调 */
+            --mist-morning: #ECE6DB;       /* 晨雾白 */
+            --paper-warm: #F6EFE4;         /* 暖宣纸 */
+            --cream-soft: #FAF6EF;         /* 奶油白 */
+            
+            /* 点缀色 */
+            --peach-soft: #E6C3B8;         /* 淡桃色 */
+            --lantern-warm: #F0DEC6;       /* 暖灯光 */
+            --cinnabar-soft: #C7776A;      /* 柔朱砂 */
+            
+            /* 墨色层次 */
+            --ink-deep: #2E2A26;           /* 浓墨 */
+            --ink-medium: #5A544D;         /* 中墨 */
+            --ink-light: #8C847B;          /* 淡墨 */
+
+            /* 细节辅助 */
+            --gold-soft: #D8C3A4;
+            --ink-wash: rgba(46, 54, 49, 0.08);
+            --leaf-glow: rgba(123, 162, 152, 0.22);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            color: var(--ink-deep);
+            line-height: 2.05;
+            letter-spacing: 0.04em;
+            overflow-x: hidden;
+            background:
+                radial-gradient(circle at 18% 12%, rgba(95, 173, 86, 0.08), transparent 45%),
+                radial-gradient(circle at 82% 8%, rgba(47, 109, 104, 0.08), transparent 42%),
+                var(--paper-warm);
+        }
+
+        /* ===== 背景：工笔山水层叠 ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: 
+                /* 宣纸纹理 - 细腻质感 */
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' stitchTiles='stitch'/%3E%3CfeDiffuseLighting lighting-color='%23F6EFE4' surfaceScale='2' result='light'%3E%3CfeDistantLight azimuth='45' elevation='60'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)'/%3E%3C/svg%3E"),
+                /* 远山淡影 - 青黛渐变 */
+                linear-gradient(180deg, 
+                    rgba(47, 109, 104, 0.18) 0%,
+                    transparent 40%
+                ),
+                /* 晨雾氛围 */
+                linear-gradient(135deg, 
+                    var(--paper-warm) 0%, 
+                    rgba(183, 203, 184, 0.22) 50%,
+                    var(--paper-warm) 100%
+                ),
+                radial-gradient(circle at 20% 80%, rgba(200, 160, 120, 0.08), transparent 45%),
+                radial-gradient(circle at 75% 25%, rgba(95, 173, 86, 0.08), transparent 40%);
+            opacity: 0.9;
+            pointer-events: none;
+            z-index: -3;
+        }
+
+        /* 远山层叠 - 工笔山水画法 */
+        .mountain-layers {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60vh;
+            pointer-events: none;
+            z-index: -2;
+            opacity: 0.9;
+            animation: mountainBreath 28s ease-in-out infinite;
+        }
+
+        .mountain-layers::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -10%;
+            width: 70%;
+            height: 80%;
+            background: linear-gradient(180deg, 
+                rgba(47, 109, 104, 0.22) 0%,
+                rgba(47, 109, 104, 0.45) 100%
+            );
+            clip-path: polygon(0% 100%, 15% 50%, 30% 70%, 45% 40%, 60% 60%, 75% 35%, 100% 55%, 100% 100%);
+            filter: blur(1px);
+        }
+
+        .mountain-layers::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: -5%;
+            width: 60%;
+            height: 60%;
+            background: linear-gradient(180deg, 
+                rgba(110, 155, 143, 0.18) 0%,
+                rgba(110, 155, 143, 0.32) 100%
+            );
+            clip-path: polygon(0% 60%, 25% 40%, 50% 55%, 70% 30%, 100% 50%, 100% 100%, 0% 100%);
+            filter: blur(2px);
+        }
+
+        /* 晨雾飘动 */
+        .morning-mist {
+            position: fixed;
+            top: 15%;
+            left: 0;
+            width: 100%;
+            height: 40vh;
+            background: linear-gradient(90deg, 
+                transparent 0%,
+                rgba(245, 241, 234, 0.6) 20%,
+                rgba(245, 241, 234, 0.6) 80%,
+                transparent 100%
+            );
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: -1;
+            animation: mistDrift 25s ease-in-out infinite;
+        }
+
+        @keyframes mistDrift {
+            0%, 100% { transform: translateX(-8%); opacity: 0.4; }
+            50% { transform: translateX(8%); opacity: 0.6; }
+        }
+
+        @keyframes mountainBreath {
+            0%, 100% { transform: translateY(0); opacity: 0.85; }
+            50% { transform: translateY(10px); opacity: 1; }
+        }
+
+        /* ===== 场景容器 ===== */
+        .scene {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+            padding: 96px 24px;
+        }
+
+        /* ===== 第一幕：炊烟袅袅的家 ===== */
+        .scene-home {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background:
+                linear-gradient(180deg, 
+                    rgba(246, 239, 228, 0.75) 0%,
+                    rgba(217, 197, 167, 0.18) 100%
+                ),
+                url('14.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: multiply;
+            position: relative;
+            isolation: isolate;
+        }
+
+        .scene-home::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(245, 230, 211, 0.55), transparent 45%),
+                radial-gradient(circle at 70% 10%, rgba(123, 162, 152, 0.18), transparent 45%);
+            opacity: 0.9;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .scene-home > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 木屋容器 */
+        .wooden-house {
+            position: relative;
+            width: 320px;
+            height: 280px;
+            margin-bottom: 48px;
+        }
+
+        .house-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 1px solid rgba(123, 91, 60, 0.18);
+            box-shadow: 
+                0 20px 60px rgba(60, 50, 40, 0.15),
+                0 0 0 1px rgba(139, 115, 85, 0.1);
+            filter: sepia(18%) saturate(85%) contrast(0.95);
+        }
+
+        /* 炊烟袅袅 */
+        .smoke {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 80px;
+            pointer-events: none;
+        }
+
+        .smoke-puff {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(ellipse, rgba(200, 200, 200, 0.4), transparent);
+            border-radius: 50%;
+            filter: blur(8px);
+            animation: smokeRise 4s ease-out infinite;
+        }
+
+        .smoke-puff:nth-child(1) { animation-delay: 0s; }
+        .smoke-puff:nth-child(2) { animation-delay: 1.3s; left: 30%; }
+        .smoke-puff:nth-child(3) { animation-delay: 2.6s; left: 70%; }
+
+        @keyframes smokeRise {
+            0% { 
+                transform: translateX(-50%) translateY(0) scale(0.5); 
+                opacity: 0.6; 
+            }
+            100% { 
+                transform: translateX(-50%) translateY(-60px) scale(1.5); 
+                opacity: 0; 
+            }
+        }
+
+        /* 主标题 */
+        .main-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 52px;
+            color: var(--mountain-blue);
+            text-align: center;
+            letter-spacing: 0.28em;
+            margin-bottom: 16px;
+            text-shadow: 0 12px 30px rgba(46, 54, 49, 0.18);
+            opacity: 0;
+            animation: gentleFadeIn 2.5s ease forwards;
+        }
+
+        .main-title span {
+            color: var(--wood-dark);
+            font-size: 0.6em;
+            vertical-align: middle;
+        }
+
+        @keyframes gentleFadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .subtitle {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: 16px;
+            color: var(--ink-light);
+            text-align: center;
+            letter-spacing: 0.35em;
+            margin-bottom: 48px;
+            opacity: 0;
+            animation: gentleFadeIn 2.5s ease 0.8s forwards;
+        }
+
+        /* 竹简书卷按钮 */
+        .bamboo-scroll {
+            padding: 16px 50px;
+            background: linear-gradient(180deg, 
+                rgba(212, 196, 168, 0.9) 0%, 
+                rgba(196, 168, 130, 0.9) 100%
+            );
+            border: 1px solid rgba(123, 91, 60, 0.2);
+            border-radius: 6px;
+            color: var(--ink-deep);
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 20px;
+            letter-spacing: 0.35em;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.6s ease;
+            opacity: 0;
+            animation: gentleFadeIn 2.5s ease 1.5s forwards;
+            box-shadow: 
+                0 8px 24px rgba(139, 115, 85, 0.18),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+        }
+
+        /* 竹节纹理 */
+        .bamboo-scroll::before,
+        .bamboo-scroll::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                var(--wood-dark) 0%,
+                var(--wood-warm) 50%,
+                var(--wood-dark) 100%
+            );
+            top: 0;
+        }
+        .bamboo-scroll::before { left: 0; border-radius: 6px 0 0 6px; }
+        .bamboo-scroll::after { right: 0; border-radius: 0 6px 6px 0; }
+
+        .bamboo-scroll:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(139, 115, 85, 0.25);
+        }
+
+        /* ===== 第二幕：溪水潺潺 ===== */
+        .scene-stream {
+            background: linear-gradient(180deg,
+                rgba(217, 197, 167, 0.12) 0%,
+                rgba(110, 155, 143, 0.1) 50%,
+                rgba(245, 241, 234, 0.35) 100%
+            );
+            position: relative;
+        }
+
+        /* 溪水效果 */
+        .stream-water {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(180deg,
+                transparent 0%,
+                rgba(110, 155, 143, 0.22) 100%
+            );
+            overflow: hidden;
+        }
+
+        .water-ripple {
+            position: absolute;
+            bottom: 20px;
+            width: 100px;
+            height: 20px;
+            border: 1px solid rgba(123, 162, 152, 0.3);
+            border-radius: 50%;
+            animation: ripple 4s ease-out infinite;
+        }
+
+        @keyframes ripple {
+            0% { transform: scaleX(0.5); opacity: 0.6; }
+            100% { transform: scaleX(2); opacity: 0; }
+        }
+
+        .letter-card {
+            max-width: 480px;
+            margin: 0 auto;
+            background: rgba(250, 247, 242, 0.9);
+            border-radius: 10px;
+            border: 1px solid rgba(123, 91, 60, 0.12);
+            padding: 64px 56px;
+            box-shadow: 
+                0 12px 50px rgba(60, 50, 40, 0.08),
+                inset 0 0 100px rgba(212, 196, 168, 0.1);
+            position: relative;
+            transform: rotate(-0.3deg);
+            overflow: hidden;
+        }
+
+        /* 信笺纹理 */
+        .letter-card::before {
+            content: '';
+            position: absolute;
+            inset: 24px;
+            border: 1px solid rgba(139, 115, 85, 0.1);
+            border-radius: 4px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .letter-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('12.png') center/cover no-repeat;
+            opacity: 0.42;
+            filter: saturate(1) contrast(1.02) brightness(1.02);
+            z-index: 0;
+        }
+
+        /* 竖线装饰 */
+        .letter-lines {
+            position: absolute;
+            top: 40px;
+            bottom: 40px;
+            left: 48px;
+            right: 48px;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 39px,
+                rgba(139, 115, 85, 0.06) 39px,
+                rgba(139, 115, 85, 0.06) 40px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .letter-card > *:not(.letter-lines):not(.wind-chime) {
+            position: relative;
+            z-index: 2;
+        }
+
+        .wind-chime {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            width: 84px;
+            opacity: 0.95;
+            transform-origin: 50% 0%;
+            animation: chimeSway 6.5s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 3;
+            filter: drop-shadow(0 8px 16px rgba(60, 50, 40, 0.18));
+        }
+
+        .wind-chime svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @keyframes chimeSway {
+            0% { transform: rotate(-4deg) translateY(0); }
+            50% { transform: rotate(4.5deg) translateY(3px); }
+            100% { transform: rotate(-4deg) translateY(0); }
+        }
+
+        .card-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 32px;
+            color: var(--cinnabar-soft);
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 0.3em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .poem-text {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 24px;
+            line-height: 2.6;
+            text-align: center;
+            letter-spacing: 0.15em;
+            color: var(--ink-deep);
+            position: relative;
+            z-index: 1;
+        }
+
+        .poem-text .highlight {
+            color: var(--water-green);
+        }
+
+        .poem-text .signature {
+            display: inline-block;
+            margin-top: 18px;
+            font-size: 18px;
+            color: var(--ink-light);
+            letter-spacing: 0.2em;
+            text-align: right;
+            width: 100%;
+            padding-right: 12px;
+        }
+
+        /* ===== 第三幕：竹林小径 ===== */
+        .scene-bamboo {
+            background: linear-gradient(180deg,
+                rgba(245, 241, 234, 0.35) 0%,
+                rgba(123, 162, 152, 0.12) 100%
+            );
+            position: relative;
+        }
+
+        /* 竹叶装饰 */
+        .bamboo-leaves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bamboo-leaf {
+            position: absolute;
+            width: 60px;
+            height: 120px;
+            background: linear-gradient(135deg, 
+                rgba(126, 158, 117, 0.32) 0%,
+                rgba(126, 158, 117, 0.12) 100%
+            );
+            border-radius: 0 100% 0 100%;
+            transform-origin: bottom left;
+            animation: leafSway 6s ease-in-out infinite;
+        }
+
+        .bamboo-leaf:nth-child(1) { left: 5%; top: 20px; animation-delay: 0s; }
+        .bamboo-leaf:nth-child(2) { right: 8%; top: 40px; animation-delay: 2s; transform: scaleX(-1); }
+        .bamboo-leaf:nth-child(3) { left: 15%; top: 80px; animation-delay: 4s; }
+
+        @keyframes leafSway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .section-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 36px;
+            color: var(--bamboo-green);
+            text-align: center;
+            margin-bottom: 24px;
+            letter-spacing: 0.25em;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--wood-warm), 
+                transparent
+            );
+            margin: 20px auto 0;
+        }
+
+        .section-intro {
+            max-width: 520px;
+            margin: 18px auto 32px;
+            text-align: center;
+            font-size: 15px;
+            color: var(--ink-light);
+            letter-spacing: 0.18em;
+            line-height: 2;
+        }
+
+        .family-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .family-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: stretch;
+        }
+
+        .family-panel-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 24px;
+            color: var(--wood-dark);
+            text-align: center;
+            letter-spacing: 0.18em;
+            margin: 0;
+        }
+
+        .family-stage {
+            position: relative;
+            width: 100%;
+            max-width: 880px;
+            height: 660px;
+            margin: 0 auto;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(123, 91, 60, 0.16);
+            box-shadow: 0 10px 32px rgba(60, 50, 40, 0.12);
+            background: rgba(245, 241, 234, 0.5);
+        }
+
+        .family-stage::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                rgba(245, 239, 230, 0.65) 0%,
+                rgba(245, 239, 230, 0.2) 18%,
+                rgba(245, 239, 230, 0.05) 50%,
+                rgba(245, 239, 230, 0.2) 82%,
+                rgba(245, 239, 230, 0.65) 100%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .family-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: sepia(18%) saturate(85%) contrast(0.95) brightness(1.02);
+            z-index: 0;
+        }
+
+        .family-image-up {
+            object-position: center 90%;
+        }
+
+        .family-side {
+            position: absolute;
+            top: 10%;
+            bottom: 10%;
+            width: 28%;
+            display: flex;
+            gap: 18px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .family-side-left {
+            left: 2%;
+            justify-content: flex-start;
+        }
+
+        .family-side-right {
+            right: 2%;
+            justify-content: flex-end;
+        }
+
+        .family-side .side-line {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-family: 'Ma Shan Zheng', cursive;
+            color: #3A3530;
+            letter-spacing: 0.12em;
+            line-height: 1.55;
+            display: block;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .side-title {
+            display: block;
+            font-size: 18px;
+            color: var(--wood-dark);
+            margin-bottom: 14px;
+            letter-spacing: 0.22em;
+        }
+
+        .side-body {
+            display: block;
+            font-size: 13px;
+            color: var(--ink-medium);
+        }
+
+        .family-moment {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            background: rgba(250, 247, 242, 0.94);
+            border: 1px solid rgba(123, 91, 60, 0.12);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(60, 50, 40, 0.06);
+            transition: transform 0.4s ease;
+        }
+
+        .family-moment:hover {
+            transform: translateY(-4px);
+        }
+
+        .moment-photo {
+            width: 140px;
+            height: 180px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            border: 1px solid rgba(123, 91, 60, 0.18);
+            position: relative;
+        }
+
+        .moment-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(139, 115, 85, 0.1) 100%);
+        }
+
+        .moment-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(18%) saturate(85%) contrast(0.95);
+        }
+
+        .moment-text h3 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 24px;
+            color: var(--wood-dark);
+            margin-bottom: 12px;
+            letter-spacing: 0.15em;
+        }
+
+        .moment-text p {
+            font-size: 15px;
+            color: var(--ink-medium);
+            line-height: 1.9;
+        }
+
+        /* ===== 第四幕：宝宝呢喃 ===== */
+        .scene-whisper {
+            background: linear-gradient(180deg,
+                rgba(110, 155, 143, 0.08) 0%,
+                rgba(245, 241, 234, 0.55) 100%
+            );
+        }
+
+        .whisper-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 28px;
+            color: var(--cinnabar-soft);
+            text-align: center;
+            margin-bottom: 22px;
+            letter-spacing: 0.2em;
+        }
+
+        .whisper-scene {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        .whisper-stage {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1080 / 1621;
+            border-radius: 18px;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(250, 247, 242, 0.85) 0%, rgba(250, 247, 242, 0.35) 45%, rgba(46, 54, 49, 0.12) 100%);
+            border: 1px solid rgba(123, 91, 60, 0.18);
+            box-shadow: 0 12px 36px rgba(60, 50, 40, 0.12);
+            isolation: isolate;
+        }
+
+        .whisper-illustration {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            filter: sepia(18%) saturate(85%) contrast(0.95) brightness(1.05);
+            opacity: 0.95;
+            z-index: 0;
+        }
+
+        .whisper-stage::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 28% 18%, rgba(245, 230, 211, 0.55), transparent 45%),
+                radial-gradient(circle at 72% 10%, rgba(123, 162, 152, 0.22), transparent 42%);
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* 飘浮话语 */
+        .floating-words {
+            position: absolute;
+            top: 2%;
+            left: 0;
+            right: 0;
+            height: 25%;
+            padding: 8px 16px;
+            background: transparent;
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: none;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .word-bubble {
+            position: absolute;
+            right: 10px;
+            padding: 24px 28px 22px;
+            background: var(--cloud-bg, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 420 220'%3E%3Cpath d='M90 160c-34 0-62-23-62-52 0-27 19-49 45-54 7-36 40-64 80-64 36 0 68 20 82 50 10-7 22-12 36-12 32 0 58 22 62 50 32 4 57 28 57 56 0 32-28 58-64 58H90z' fill='%23FAF6EF' stroke='%23D8C3B2' stroke-width='6' stroke-linejoin='round'/%3E%3C/svg%3E")) center/100% 100% no-repeat;
+            border-radius: 0;
+            box-shadow: none;
+            filter: drop-shadow(0 10px 18px rgba(60, 50, 40, 0.18));
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 14px;
+            color: #3A3530;
+            max-width: 90%;
+            min-width: 170px;
+            min-height: 88px;
+            text-align: center;
+            white-space: normal;
+            line-height: 1.65;
+            word-break: break-word;
+            animation: wordFloat 8s linear forwards;
+            opacity: 1;
+            z-index: 10;
+            border: none;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
+
+        @keyframes wordFloat {
+            0% { 
+                transform: translateX(30px);
+                opacity: 0;
+            }
+            10% { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+            80% { 
+                opacity: 1;
+                transform: translateX(calc(-1 * var(--travel, 240px)));
+            }
+            100% { 
+                transform: translateX(calc(-1 * var(--travel, 240px)));
+                opacity: 0;
+            }
+        }
+
+        /* ===== 第六幕：灯火人家 ===== */
+        .scene-lanterns {
+            background: linear-gradient(180deg,
+                rgba(245, 241, 234, 0.55) 0%,
+                rgba(39, 72, 69, 0.85) 35%,
+                rgba(20, 38, 38, 0.95) 100%
+            );
+            min-height: 920px;
+            position: relative;
+        }
+
+        .scene-lanterns .section-title {
+            color: var(--lantern-warm);
+            margin-top: 40px;
+        }
+
+        .scene-lanterns .section-intro {
+            color: rgba(240, 222, 198, 0.7);
+        }
+
+        /* 夜幕下的家 */
+        .night-home {
+            width: 100%;
+            max-width: 400px;
+            height: 240px;
+            margin: 0 auto 64px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+            border: 2px solid rgba(245, 230, 211, 0.15);
+            position: relative;
+        }
+
+        .night-home img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.75) sepia(18%) saturate(90%);
+        }
+
+        /* 窗灯温暖 */
+        .window-light {
+            position: absolute;
+            width: 40px;
+            height: 50px;
+            background: radial-gradient(ellipse, 
+                rgba(245, 230, 211, 0.9) 0%,
+                rgba(245, 230, 211, 0.3) 70%
+            );
+            border-radius: 4px;
+            animation: windowGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes windowGlow {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 0.9; }
+        }
+
+        /* 天灯池 */
+        .lantern-pool {
+            position: relative;
+            height: 520px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .floating-lantern {
+            position: absolute;
+            width: 70px;
+            height: 100px;
+            cursor: pointer;
+            transition: transform 0.6s ease;
+        }
+
+        .floating-lantern:hover {
+            transform: scale(1.05);
+        }
+
+        .lantern-body {
+            width: 100%;
+            height: 75%;
+            background: linear-gradient(180deg,
+                rgba(250, 240, 230, 0.95) 0%,
+                rgba(245, 230, 211, 0.9) 50%,
+                rgba(240, 225, 210, 0.85) 100%
+            );
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            box-shadow: 
+                0 0 30px rgba(245, 230, 211, 0.4),
+                inset 0 -10px 20px rgba(200, 180, 160, 0.2);
+            animation: lanternFloat 6s ease-in-out infinite;
+        }
+
+        .lantern-body::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30%;
+            height: 8px;
+            background: var(--wood-dark);
+            border-radius: 2px;
+        }
+
+        .lantern-body::after {
+            content: '';
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 14px;
+            background: var(--wood-dark);
+        }
+
+        .lantern-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 13px;
+            color: var(--cinnabar-soft);
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            letter-spacing: 0.3em;
+        }
+
+        .lantern-glow {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 15px;
+            background: radial-gradient(ellipse, 
+                rgba(227, 117, 106, 0.5) 0%, 
+                transparent 70%
+            );
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes lanternFloat {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.4; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.8; transform: translateX(-50%) scale(1.3); }
+        }
+
+        .lantern-wish {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            background: rgba(250, 247, 242, 0.98);
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: var(--ink-deep);
+            white-space: nowrap;
+            opacity: 0;
+            transition: all 0.4s ease;
+            pointer-events: none;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            border-left: 3px solid var(--water-green);
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .floating-lantern:hover .lantern-wish {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* 升空动画 */
+        .floating-lantern.flying {
+            animation: flyAway 5s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes flyAway {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-800px) scale(0.4); opacity: 0; }
+        }
+
+        .lantern-hint {
+            text-align: center;
+            color: rgba(240, 222, 198, 0.7);
+            font-size: 15px;
+            margin-top: 32px;
+            letter-spacing: 0.2em;
+        }
+
+        /* ===== 第七幕：执手偕老 ===== */
+        .scene-forever {
+            position: relative;
+            background: linear-gradient(180deg,
+                rgba(20, 38, 38, 0.88) 0%,
+                rgba(39, 72, 69, 0.55) 28%,
+                rgba(212, 196, 168, 0.25) 65%,
+                var(--paper-warm) 100%
+            );
+            padding: 120px 24px 100px;
+            overflow: hidden;
+        }
+
+        .forever-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 32px;
+            color: var(--lantern-warm);
+            text-align: center;
+            margin-bottom: 56px;
+            letter-spacing: 0.3em;
+        }
+
+        .seal-area {
+            max-width: 520px;
+            margin: 0 auto;
+            position: relative;
+            background: url('15.png') center/cover no-repeat;
+            border-radius: 12px;
+            padding: 56px 48px 48px;
+            box-shadow: 0 12px 50px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid rgba(139, 115, 85, 0.16);
+            backdrop-filter: blur(2px);
+        }
+
+        .seal-area::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0.18) 0%,
+                rgba(246, 240, 232, 0.55) 35%,
+                rgba(246, 240, 232, 0.82) 100%
+            );
+            z-index: 0;
+        }
+
+        .seal-area > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .default-letter {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 18px;
+            line-height: 2.4;
+            color: var(--ink-deep);
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px dashed rgba(139, 115, 85, 0.2);
+            text-align: center;
+        }
+
+        .letter-input {
+            width: 100%;
+            min-height: 120px;
+            padding: 20px;
+            border: 1px solid rgba(139, 115, 85, 0.25);
+            border-radius: 8px;
+            background: rgba(245, 241, 234, 0.5);
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 17px;
+            line-height: 2;
+            color: var(--ink-deep);
+            resize: vertical;
+            margin-bottom: 24px;
+        }
+
+        .letter-input:focus {
+            outline: none;
+            border-color: var(--water-green);
+            background: rgba(245, 241, 234, 0.7);
+        }
+
+        .seal-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(180deg, 
+                var(--cinnabar-soft) 0%, 
+                #B85A50 100%
+            );
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 22px;
+            letter-spacing: 0.5em;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(200, 100, 90, 0.3);
+        }
+
+        .seal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200, 100, 90, 0.4);
+        }
+
+        .restore-btn {
+            display: block;
+            margin: 18px auto 0;
+            padding: 12px 28px;
+            background: rgba(245, 239, 230, 0.6);
+            border: 1px solid rgba(123, 91, 60, 0.3);
+            border-radius: 999px;
+            color: var(--wood-dark);
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 18px;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .restore-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(123, 91, 60, 0.2);
+            background: rgba(245, 239, 230, 0.85);
+        }
+
+        .sealed-result {
+            display: none;
+            text-align: center;
+        }
+
+        .sealed-result.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .red-seal {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 32px;
+            border: 3px solid var(--cinnabar-soft);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 40px;
+            color: var(--cinnabar-soft);
+            transform: rotate(-12deg);
+            animation: sealDrop 0.8s ease forwards;
+        }
+
+        @keyframes sealDrop {
+            0% { transform: rotate(-12deg) scale(1.5); opacity: 0; }
+            100% { transform: rotate(-12deg) scale(1); opacity: 1; }
+        }
+
+        .final-blessing {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 22px;
+            color: var(--water-green);
+            letter-spacing: 0.2em;
+            margin-top: 40px;
+        }
+
+        /* 遮罩层 */
+        .final-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 25, 24, 0.78);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s ease;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .final-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .overlay-content {
+            text-align: center;
+            color: var(--lantern-warm);
+            text-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .overlay-content h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 42px;
+            letter-spacing: 0.35em;
+            margin-bottom: 24px;
+        }
+
+        .overlay-content p {
+            font-size: 20px;
+            letter-spacing: 0.2em;
+            opacity: 0.85;
+        }
+
+        /* ===== 飘落花瓣 ===== */
+        .petal-fall {
+            position: fixed;
+            width: 14px;
+            height: 14px;
+            background: linear-gradient(135deg, 
+                var(--peach-soft) 0%, 
+                rgba(232, 200, 200, 0.8) 100%
+            );
+            border-radius: 50% 0 50% 50%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0;
+        }
+
+        @keyframes petalFall {
+            0% { 
+                transform: translateY(-30px) translateX(0) rotate(0deg); 
+                opacity: 0;
+            }
+            8% { opacity: 0.6; }
+            25% { transform: translateY(25vh) translateX(25px) rotate(90deg); }
+            50% { transform: translateY(50vh) translateX(-15px) rotate(180deg); }
+            75% { transform: translateY(75vh) translateX(20px) rotate(270deg); opacity: 0.4; }
+            100% { 
+                transform: translateY(110vh) translateX(0) rotate(360deg); 
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.98); }
+            12% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(1.02); }
+        }
+
+        .toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(47, 109, 104, 0.95);
+            color: white;
+            padding: 18px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            z-index: 10000;
+            font-family: 'Ma Shan Zheng', cursive;
+            letter-spacing: 0.12em;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            animation: fadeInOut 2.6s ease forwards;
+        }
+
+        .toast.light {
+            background: rgba(245, 241, 234, 0.98);
+            color: var(--ink-deep);
+            border: 1px solid rgba(123, 91, 60, 0.18);
+            box-shadow: 0 8px 26px rgba(60, 50, 40, 0.16);
+        }
+
+        /* ===== 音乐控制 ===== */
+        .music-btn {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 10000;
+            padding: 12px 20px;
+            background: rgba(250, 247, 242, 0.95);
+            border: 1px solid rgba(139, 115, 85, 0.2);
+            border-radius: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 14px;
+            color: var(--ink-deep);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .music-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .music-btn.playing {
+            background: linear-gradient(135deg, 
+                var(--mountain-blue), 
+                var(--water-green)
+            );
+            color: white;
+            border-color: transparent;
+        }
+
+        .music-btn.playing .music-note {
+            animation: noteDance 1.8s ease-in-out infinite;
+        }
+
+        @keyframes noteDance {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        /* ===== 页脚 ===== */
+        footer {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--ink-light);
+            font-size: 15px;
+            background: var(--paper-warm);
+            letter-spacing: 0.25em;
+        }
+
+        footer .love { color: var(--cinnabar-soft); }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 768px) {
+            .main-title { font-size: 40px; letter-spacing: 0.25em; }
+            .wooden-house { width: 260px; height: 220px; }
+            .family-moment { flex-direction: column; text-align: center; }
+            .moment-photo { width: 120px; height: 150px; }
+            .family-stage { height: 580px; }
+            .family-panel-title { font-size: 22px; }
+            .family-side { width: 32%; gap: 12px; }
+            .side-title { font-size: 16px; }
+            .side-body { font-size: 12px; }
+            .whisper-stage { aspect-ratio: 1080 / 1621; }
+            .floating-words { height: 28%; top: 2%; }
+            .word-bubble { font-size: 12px; padding: 22px 22px 20px; max-width: 96%; min-width: 160px; min-height: 80px; background-size: 100% 100%; }
+            .floating-lantern { width: 55px; height: 80px; }
+            .lantern-text { font-size: 11px; }
+            .seal-area { padding: 44px 28px 36px; }
+            .wind-chime { width: 64px; top: 8px; right: 14px; }
+            .letter-card { padding: 40px 28px; }
+            .poem-text { font-size: 22px; }
+        }
+
+        @media (max-width: 480px) {
+            .main-title { font-size: 32px; }
+            .section-title { font-size: 26px; }
+            .bamboo-scroll { font-size: 18px; padding: 14px 36px; }
+            .section-intro { font-size: 13px; letter-spacing: 0.12em; }
+            .family-stage { height: 500px; }
+            .family-side { width: 36%; gap: 10px; }
+            .side-title { font-size: 16px; }
+            .side-body { font-size: 12px; }
+            .seal-area { padding: 40px 22px 32px; }
+        }
+
+        /* 减少动画 */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+            .morning-mist { animation: none; }
+            .toast { animation: none; }
+            .floating-words {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                height: auto;
+                overflow: visible;
+                padding: 12px;
+            }
+            .word-bubble {
+                position: relative;
+                right: auto;
+                margin: 8px auto;
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 田园牧歌背景音乐 -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/11/22/audio_febc508520.mp3?filename=chinese-traditional-music-guzheng-113624.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+        <span class="music-note">🎵</span>
+        <span id="musicText">田园丝竹</span>
+    </button>
+
+    <!-- 背景层 -->
+    <div class="mountain-layers"></div>
+    <div class="morning-mist"></div>
+    <div id="petals-container"></div>
+
+    <!-- 最终遮罩 -->
+    <div class="final-overlay" id="finalOverlay">
+        <div class="overlay-content">
+            <h2>愿此生执手</h2>
+            <p>山水为证 · 岁月悠长</p>
+        </div>
+    </div>
+
+    <!-- 第一幕：炊烟袅袅的家 -->
+    <section class="scene scene-home">
+        <h1 class="main-title">桃源深处<span>·</span>情定今夕</h1>
+        <p class="subtitle">情人节快乐 · 山水作证 · 与君恒久远</p>
+    </section>
+
+    <!-- 第二幕：溪水潺潺 -->
+    <section class="scene scene-stream" id="poem">
+        <div class="stream-water">
+            <div class="water-ripple" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="water-ripple" style="left: 40%; animation-delay: 1.5s;"></div>
+            <div class="water-ripple" style="left: 70%; animation-delay: 3s;"></div>
+        </div>
+
+        <div class="letter-card">
+            <div class="letter-lines"></div>
+            <div class="wind-chime" aria-hidden="true">
+                <svg viewBox="0 0 120 240" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="chime-glass" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#E9F3F0" stop-opacity="0.92"/>
+                            <stop offset="55%" stop-color="#C9DCD1" stop-opacity="0.88"/>
+                            <stop offset="100%" stop-color="#A9BEB3" stop-opacity="0.92"/>
+                        </linearGradient>
+                        <linearGradient id="chime-shadow" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#6E877C" stop-opacity="0.16"/>
+                            <stop offset="100%" stop-color="#6E877C" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="chime-paper" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#F7F1E6"/>
+                            <stop offset="100%" stop-color="#E4D2BB"/>
+                        </linearGradient>
+                    </defs>
+                    <line x1="60" y1="0" x2="60" y2="22" stroke="#8AA199" stroke-width="2" />
+                    <circle cx="60" cy="28" r="6" fill="#B2C4B9" stroke="#8AA199" stroke-width="1.5"/>
+                    <path d="M30 96C30 54 90 54 90 96L82 156C80 166 40 166 38 156L30 96Z" fill="url(#chime-glass)" stroke="#8AA199" stroke-width="2"/>
+                    <ellipse cx="60" cy="96" rx="30" ry="9" fill="#D9E6DE" stroke="#8AA199" stroke-width="1.5"/>
+                    <path d="M36 96C38 124 46 142 60 150C74 142 82 124 84 96" fill="url(#chime-shadow)"/>
+                    <path d="M46 78C46 68 74 68 74 78" stroke="#F2F7F4" stroke-width="2" opacity="0.8"/>
+                    <line x1="60" y1="102" x2="60" y2="166" stroke="#8AA199" stroke-width="2"/>
+                    <circle cx="60" cy="170" r="6" fill="#8AA199"/>
+                    <path d="M40 176L80 176L74 228L46 228Z" fill="url(#chime-paper)" stroke="#B99974" stroke-width="1.5"/>
+                    <path d="M46 188H74" stroke="#C9B59B" stroke-width="1.2"/>
+                    <path d="M46 198H72" stroke="#C9B59B" stroke-width="1.2"/>
+                    <path d="M46 208H70" stroke="#C9B59B" stroke-width="1.2"/>
+                </svg>
+            </div>
+            <h2 class="card-title">致宇星吾爱</h2>
+            <div class="poem-text">
+                <span class="highlight">一纸情书</span><br>
+                半卷青山<br>
+                风来有信<br>
+                是你温柔人间<br>
+                愿此生<br>
+                与君共栖桃源<br>
+                <span class="signature">—— 王涛</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第三幕：竹林小径 -->
+    <section class="scene scene-bamboo" id="family">
+        <div class="bamboo-leaves">
+            <div class="bamboo-leaf"></div>
+            <div class="bamboo-leaf"></div>
+            <div class="bamboo-leaf"></div>
+        </div>
+
+        <h2 class="section-title">我们的小家</h2>
+        <p class="section-intro">柴米与山水，烟火与浪漫，都在你我之间。</p>
+
+        <div class="family-gallery">
+            <div class="family-panel">
+                <h3 class="family-panel-title">婚姻</h3>
+                <div class="family-stage">
+                    <img src="couple.png" alt="婚姻" class="family-image">
+                    <div class="family-side family-side-left">
+                        <div class="side-line">
+                            <span class="side-body">与你相遇，如春山初醒。</span>
+                        </div>
+                    </div>
+                    <div class="family-side family-side-right">
+                        <div class="side-line">
+                            <span class="side-body">你把平凡的日子，点成了灯火。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="family-panel">
+                <h3 class="family-panel-title">相守</h3>
+                <div class="family-stage">
+                    <img src="13.png" alt="相守" class="family-image family-image-up">
+                    <div class="family-side family-side-left">
+                        <div class="side-line">
+                            <span class="side-body">从二人世界到三口之家。</span>
+                        </div>
+                    </div>
+                    <div class="family-side family-side-right">
+                        <div class="side-line">
+                            <span class="side-body">你温柔坚定，让我相信岁月可期。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="family-panel">
+                <h3 class="family-panel-title">小家</h3>
+                <div class="family-stage">
+                    <img src="family.png" alt="小家" class="family-image">
+                    <div class="family-side family-side-left">
+                        <div class="side-line">
+                            <span class="side-body">屋里有烟火，窗外有溪山。</span>
+                        </div>
+                    </div>
+                    <div class="family-side family-side-right">
+                        <div class="side-line">
+                            <span class="side-body">心里有你和即将到来的小生命。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第四幕：宝宝呢喃 -->
+    <section class="scene scene-whisper" id="whisper">
+        <h2 class="whisper-title">世上只有妈妈好</h2>
+        <p class="section-intro">愿你温柔安然，把小小心愿轻轻写满云端。</p>
+
+        <div class="whisper-scene">
+            <div class="whisper-stage">
+                <img class="whisper-illustration" src="wife.jpg" alt="妈妈的插画">
+                <div class="floating-words" id="floatingWords">
+                    <!-- 飘浮话语由JS生成 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第六幕：灯火人家 -->
+    <section class="scene scene-lanterns" id="lanterns">
+        <h2 class="section-title">祈愿灯</h2>
+        <p class="section-intro">让心愿随灯火升起，愿温柔如期而至。</p>
+
+        <div class="lantern-pool">
+            <div class="floating-lantern" style="left: 8%; top: 20%;" data-wish="愿晨昏相依，四季欢喜">
+                <div class="lantern-body">
+                    <span class="lantern-text">朝夕</span>
+                    <div class="lantern-glow"></div>
+                </div>
+                <span class="lantern-wish">愿晨昏相依，四季欢喜</span>
+            </div>
+
+            <div class="floating-lantern" style="left: 28%; top: 45%;" data-wish="愿宝宝如春日幼苗，向阳而生">
+                <div class="lantern-body">
+                    <span class="lantern-text">成长</span>
+                    <div class="lantern-glow"></div>
+                </div>
+                <span class="lantern-wish">愿宝宝如春日幼苗，向阳而生</span>
+            </div>
+
+            <div class="floating-lantern" style="left: 48%; top: 15%;" data-wish="愿岁月温柔，相伴到老">
+                <div class="lantern-body">
+                    <span class="lantern-text">白首</span>
+                    <div class="lantern-glow"></div>
+                </div>
+                <span class="lantern-wish">愿岁月温柔，相伴到老</span>
+            </div>
+
+            <div class="floating-lantern" style="left: 68%; top: 40%;" data-wish="愿烟火人间，年年如愿">
+                <div class="lantern-body">
+                    <span class="lantern-text">如愿</span>
+                    <div class="lantern-glow"></div>
+                </div>
+                <span class="lantern-wish">愿烟火人间，年年如愿</span>
+            </div>
+
+            <div class="floating-lantern" style="left: 85%; top: 25%;" data-wish="愿山海可平，爱意长明">
+                <div class="lantern-body">
+                    <span class="lantern-text">长明</span>
+                    <div class="lantern-glow"></div>
+                </div>
+                <span class="lantern-wish">愿山海可平，爱意长明</span>
+            </div>
+
+            <div class="floating-lantern" style="left: 18%; top: 65%;" data-wish="愿风调雨顺，五谷丰登">
+                <div class="lantern-body">
+                    <span class="lantern-text">丰年</span>
+                    <div class="lantern-glow"></div>
+                </div>
+                <span class="lantern-wish">愿风调雨顺，五谷丰登</span>
+            </div>
+
+            <div class="floating-lantern" style="left: 38%; top: 75%;" data-wish="愿月圆人圆，灯火可亲">
+                <div class="lantern-body">
+                    <span class="lantern-text">团圆</span>
+                    <div class="lantern-glow"></div>
+                </div>
+                <span class="lantern-wish">愿月圆人圆，灯火可亲</span>
+            </div>
+
+            <div class="floating-lantern" style="left: 58%; top: 60%;" data-wish="愿前程似锦绣，步步生花">
+                <div class="lantern-body">
+                    <span class="lantern-text">锦绣</span>
+                    <div class="lantern-glow"></div>
+                </div>
+                <span class="lantern-wish">愿前程似锦绣，步步生花</span>
+            </div>
+
+            <div class="floating-lantern" style="left: 78%; top: 70%;" data-wish="愿情深似海，此志不渝">
+                <div class="lantern-body">
+                    <span class="lantern-text">不渝</span>
+                    <div class="lantern-glow"></div>
+                </div>
+                <span class="lantern-wish">愿情深似海，此志不渝</span>
+            </div>
+
+            <div class="floating-lantern" style="left: 90%; top: 55%;" data-wish="愿福泽绵长，岁岁安康">
+                <div class="lantern-body">
+                    <span class="lantern-text">绵长</span>
+                    <div class="lantern-glow"></div>
+                </div>
+                <span class="lantern-wish">愿福泽绵长，岁岁安康</span>
+            </div>
+        </div>
+
+        <p class="lantern-hint">轻触天灯，愿望随风上行</p>
+    </section>
+
+    <!-- 第七幕：执手偕老 -->
+    <section class="scene scene-forever" id="seal">
+        <h2 class="forever-title">执笔写心 · 桃源长久</h2>
+
+        <div class="seal-area">
+            <div id="letterForm">
+                <div class="default-letter">
+                    亲爱的：<br><br>
+                    你来时，像春风路过青山。<br>
+                    与你相伴，日子便有了烟火与诗。<br>
+                    在这片桃源里，<br>
+                    我们把寻常写成温柔，<br>
+                    把时光过成慢慢。<br><br>
+                    小生命也将加入我们的故事，<br>
+                    愿我一生守你笑，护你安。<br>
+                    愿我们执手走远，四季欢喜。
+                </div>
+
+                <textarea class="letter-input" id="customLetter" placeholder="写下此刻想对你说的话..."></textarea>
+
+                <button class="seal-btn" onclick="sealLetter()">封存情书</button>
+            </div>
+
+            <div class="sealed-result" id="sealedResult">
+                <div class="red-seal">印</div>
+                <div id="sealedText" style="font-family: 'Ma Shan Zheng', cursive; font-size: 17px; line-height: 2; color: var(--ink-deep); margin-bottom: 16px;"></div>
+                <div id="sealedDate" style="font-size: 14px; color: var(--ink-light); margin-bottom: 32px;"></div>
+                <div class="final-blessing">愿此生执手 · 山水为证 · 岁月悠长</div>
+                <button class="restore-btn" onclick="restoreLetter()">恢复编辑</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><span class="love">桃源深处</span> · <span class="love">情定今夕</span> · 情人节快乐</p>
+    </footer>
+
+    <script>
+        // 飘浮话语
+        const babyWords = [
+            "妈妈，你的怀抱一定很温暖",
+            "妈妈，我喜欢听你笑",
+            "爸爸，你要好好照顾妈妈",
+            "我已经迫不及待想见到你们了",
+            "妈妈的心跳声好温柔",
+            "我在练习踢腿呢",
+            "谢谢给我生命",
+            "妈妈是最美的",
+            "我会很乖的",
+            "期待和你们见面",
+            "我在妈妈肚子里很好",
+            "爸爸的声音很好听",
+            "妈妈笑起来真好看",
+            "我们是幸福的一家",
+            "我爱你们"
+        ];
+
+        const cloudStaticSkins = [
+            'clouds/cloud-1.png',
+            'clouds/cloud-2.png',
+            'clouds/cloud-3.png',
+            'clouds/cloud-4.png',
+            'clouds/cloud-5.png',
+            'clouds/cloud-6.png',
+            'clouds/cloud-7.png',
+            'clouds/cloud-8.png',
+            'clouds/cloud-9.png'
+        ];
+
+        let cloudSkins = cloudStaticSkins.slice();
+
+        const cloudSprite = new Image();
+        cloudSprite.src = '902666.png?v=20260212';
+        const cloudSlices = [
+            { x: 89, y: 87, w: 413, h: 250 },
+            { x: 587, y: 107, w: 402, h: 237 },
+            { x: 1104, y: 109, w: 383, h: 238 },
+            { x: 89, y: 425, w: 407, h: 246 },
+            { x: 613, y: 450, w: 406, h: 231 },
+            { x: 1124, y: 449, w: 407, h: 242 },
+            { x: 100, y: 757, w: 402, h: 262 },
+            { x: 620, y: 771, w: 397, h: 252 },
+            { x: 1130, y: 796, w: 402, h: 238 }
+        ];
+        let cloudSpriteReady = false;
+
+        function buildCloudSkins() {
+            if (cloudSpriteReady || !cloudSprite.naturalWidth) return;
+            const sheetW = cloudSprite.naturalWidth;
+            const sheetH = cloudSprite.naturalHeight;
+            const canvas = document.createElement('canvas');
+            const pad = 8;
+            try {
+                const nextSkins = cloudSlices.map((slice) => {
+                    const sx = Math.max(0, slice.x - pad);
+                    const sy = Math.max(0, slice.y - pad);
+                    const sw = Math.min(sheetW - sx, slice.w + pad * 2);
+                    const sh = Math.min(sheetH - sy, slice.h + pad * 2);
+                    canvas.width = sw;
+                    canvas.height = sh;
+                    const ctx = canvas.getContext('2d');
+                    ctx.clearRect(0, 0, sw, sh);
+                    ctx.drawImage(cloudSprite, sx, sy, sw, sh, 0, 0, sw, sh);
+                    return canvas.toDataURL('image/png');
+                });
+
+                if (nextSkins.length) {
+                    cloudSkins = nextSkins;
+                    cloudSpriteReady = true;
+                }
+            } catch (err) {
+                cloudSkins = cloudStaticSkins.slice();
+                cloudSpriteReady = false;
+            }
+        }
+
+        cloudSprite.onload = buildCloudSkins;
+        cloudSprite.onerror = () => {
+            cloudSkins = cloudStaticSkins.slice();
+            cloudSpriteReady = false;
+        };
+        if (cloudSprite.complete) buildCloudSkins();
+        setTimeout(buildCloudSkins, 600);
+
+        function createWordBubble() {
+            const container = document.getElementById('floatingWords');
+            if (!container) return;
+            
+            const word = babyWords[Math.floor(Math.random() * babyWords.length)];
+
+            const bubble = document.createElement('div');
+            bubble.className = 'word-bubble';
+            bubble.textContent = word;
+
+            if (cloudSkins.length) {
+                const skin = cloudSkins[Math.floor(Math.random() * cloudSkins.length)];
+                bubble.style.setProperty('--cloud-bg', 'url(' + skin + ')');
+            }
+
+            // 随机垂直位置
+            container.appendChild(bubble);
+
+            const bubbleWidth = bubble.offsetWidth;
+            const maxTop = Math.max(8, container.clientHeight - bubble.offsetHeight - 8);
+            const top = Math.max(8, Math.random() * maxTop);
+            bubble.style.top = `${top}px`;
+            const travel = container.clientWidth + bubbleWidth + 40;
+            bubble.style.setProperty('--travel', `${travel}px`);
+            const duration = 12 + Math.random() * 6;
+            bubble.style.animationDuration = `${duration}s`;
+
+            // 动画结束后移除
+            setTimeout(() => {
+                if (bubble.parentNode) bubble.remove();
+            }, duration * 1000);
+        }
+
+        // 初始化时创建几个
+        setTimeout(createWordBubble, 1000);
+        setTimeout(createWordBubble, 3000);
+        setTimeout(createWordBubble, 5000);
+        
+        // 每6秒生成一个新的
+        setInterval(createWordBubble, 6000);
+
+        // 天灯点击
+        document.querySelectorAll('.floating-lantern').forEach(lantern => {
+            lantern.addEventListener('click', function() {
+                if (this.classList.contains('flying')) return;
+
+                const wish = this.dataset.wish;
+                showWishToast(wish);
+
+                this.classList.add('flying');
+
+                setTimeout(() => {
+                    this.classList.remove('flying');
+                }, 5000);
+            });
+        });
+
+        function showToast(msg, tone = 'dark') {
+            const toast = document.createElement('div');
+            toast.className = tone === 'light' ? 'toast light' : 'toast';
+            toast.textContent = '❝ ' + msg + ' ❞';
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2600);
+        }
+
+        function showWishToast(msg) {
+            showToast(msg, 'dark');
+        }
+        // 封存情书
+        function sealLetter() {
+            const custom = document.getElementById('customLetter').value.trim();
+            const defaultText = `亲爱的：
+
+你来时，像春风路过青山。
+与你相伴，日子便有了烟火与诗。
+在这片桃源里，
+我们把寻常写成温柔，
+把时光过成慢慢。
+
+小生命也将加入我们的故事，
+愿我一生守你笑，护你安。
+愿我们执手走远，四季欢喜。`;
+
+            const text = custom || defaultText;
+            const date = new Date().toLocaleDateString('zh-CN', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            localStorage.setItem('loveLetter', text);
+            localStorage.setItem('loveDate', date);
+
+            const overlay = document.getElementById('finalOverlay');
+            overlay.classList.add('active');
+
+            setTimeout(() => {
+                overlay.classList.remove('active');
+                document.getElementById('letterForm').style.display = 'none';
+                document.getElementById('sealedText').textContent = text;
+                document.getElementById('sealedDate').textContent = date + ' · 已封存';
+                document.getElementById('sealedResult').classList.add('active');
+            }, 2000);
+        }
+
+        function restoreLetter() {
+            const saved = localStorage.getItem('loveLetter');
+            if (!saved) {
+                showToast('还没有封存内容', 'light');
+                return;
+            }
+            const form = document.getElementById('letterForm');
+            const result = document.getElementById('sealedResult');
+            const input = document.getElementById('customLetter');
+            form.style.display = 'block';
+            result.classList.remove('active');
+            input.value = saved;
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // 飘落花瓣
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'petal-fall';
+            petal.style.left = Math.random() * 100 + 'vw';
+
+            const duration = Math.random() * 10 + 15;
+            petal.style.animation = `petalFall ${duration}s ease-in-out forwards`;
+
+            document.getElementById('petals-container').appendChild(petal);
+            setTimeout(() => petal.remove(), duration * 1000);
+        }
+
+        for (let i = 0; i < 4; i++) {
+            setTimeout(createPetal, i * 2500);
+        }
+        setInterval(createPetal, 3000);
+
+        // 滚动
+        function scrollTo(id) {
+            const target = document.getElementById(id);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // 音乐控制
+        const bgMusic = document.getElementById('bgMusic');
+        bgMusic.volume = 0.28;
+
+        function toggleMusic() {
+            const btn = document.getElementById('musicBtn');
+            const text = document.getElementById('musicText');
+
+            if (bgMusic.paused) {
+                bgMusic.play();
+                btn.classList.add('playing');
+                text.textContent = '丝竹悠扬';
+            } else {
+                bgMusic.pause();
+                btn.classList.remove('playing');
+                text.textContent = '田园丝竹';
+            }
+        }
+
+        // 页面加载
+        window.addEventListener('load', () => {
+            const saved = localStorage.getItem('loveLetter');
+            const savedDate = localStorage.getItem('loveDate');
+
+            if (saved && savedDate) {
+                // 清理未上线期间的封存状态，保持未封存初始态
+                localStorage.removeItem('loveLetter');
+                localStorage.removeItem('loveDate');
+            }
+
+            // 尝试自动播放
+            bgMusic.play().catch(() => {});
+        });
+
+        let resizeTimer = null;
+        window.addEventListener('resize', () => {
+            if (resizeTimer) clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+            }, 200);
+        });
+    </script>
+</body>
+</html>
